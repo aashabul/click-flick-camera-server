@@ -267,9 +267,24 @@ app.get("/products/:id", (req, res) => {
 });
 
 const reviews = [
-  { id: 0, comment: "Awesome product", star: 5 },
-  { id: 1, comment: "So much handy", star: 5 },
-  { id: 2, comment: "battery not much good", star: 3 },
+  {
+    id: 0,
+    comment: "Awesome product",
+    star: 5,
+    name: "Elon Musk",
+    email: "elonmask@gmail.com",
+    image:
+      "https://img.freepik.com/free-vector/cute-swag-polar-bear-with-hat-gold-chain-necklace-cartoon-illustration-flat-cartoon-style_138676-2719.jpg?size=338&ext=jpg",
+  },
+  {
+    id: 1,
+    comment: "So much handy",
+    star: 4,
+    name: "Bill Gates",
+    email: "bill@gmail.com",
+    image:
+      "https://img.freepik.com/free-vector/cute-bad-cat-wearing-suit-sunglasses-with-baseball-bat-cartoon-icon-illustration-animal-fashion-icon-concept-isolated-flat-cartoon-style_138676-2170.jpg",
+  },
 ];
 
 app.get("/reviews", (req, res) => {
