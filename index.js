@@ -80,12 +80,12 @@ async function run() {
     });
 
     //delete from wishlist
-    app.delete("/wishlist/:id", async (req, res) => {
-      const wishlistId = req.params.id;
-      query = { _id: ObjectId(wishlistId) };
-      const deleteWishlist = await wishlistCollection.deleteOne(query);
-      res.json(deleteWishlist);
-    });
+    // app.delete("/wishlist/:id", async (req, res) => {
+    //   const wishlistId = req.params.id;
+    //   query = { _id: ObjectId(wishlistId) };
+    //   const deleteWishlist = await wishlistCollection.deleteOne(query);
+    //   res.json(deleteWishlist);
+    // });
 
     //post to wishlist
     app.post("/wishlist", async (req, res) => {
