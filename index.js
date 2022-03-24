@@ -93,14 +93,6 @@ async function run() {
       const myWishlist = await findWishlist.toArray();
       res.send(myWishlist);
     });
-
-    //delete wishlist item
-    app.delete("/wishlist/:id", async (res, res) => {
-      const wishlistId = req.params.id;
-      query = { _id: ObjectId(wishlistId) };
-      const deletedWishlistItem = await wishlistCollection.deleteOne(query);
-      res.json(deletedWishlistItem);
-    });
   } finally {
     // await client.close();
   }
