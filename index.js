@@ -29,6 +29,7 @@ async function run() {
     const reviewCollection = database.collection("reviews");
     const productCollection = database.collection("products");
     const cartCollection = database.collection("cart");
+    const wishlistCollection = database.collection("wishlist");
 
     //get review
     app.get("/reviews", async (req, res) => {
@@ -55,7 +56,7 @@ async function run() {
       res.send(products);
     });
 
-    //add to cart
+    //post to cart
     app.post("/cart", async (req, res) => {
       const cart = req.body;
       const addtoCart = await cartCollection.insertOne(cart);
@@ -76,6 +77,14 @@ async function run() {
       query = { _id: ObjectId(id) };
       const deletedItem = await cartCollection.deleteOne(query);
       res.json(deletedItem);
+    });
+
+    //post to wishlist
+    app.post("/wishlist", async (req, res) => {
+      const wishlist = req.body;
+      const addtoWishlist = await wishlistCollection.insertOne(wishlist);
+      console.log(req.body);
+      res.json(addtoWishlist);
     });
   } finally {
     // await client.close();
