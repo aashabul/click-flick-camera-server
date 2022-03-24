@@ -86,6 +86,12 @@ async function run() {
       console.log(req.body);
       res.json(addtoWishlist);
     });
+
+    app.get("/wishlist", async (req, res) => {
+      const findWishlist = wishlistCollection.find({});
+      const myWishlist = await findWishlist.toArray();
+      res.send(myWishlist);
+    });
   } finally {
     // await client.close();
   }
